@@ -1,0 +1,21 @@
+time_sync = 0.5
+
+live_loop :beats do
+  sample :bd_zum
+  sleep time_sync
+end
+
+notes = (ring :E4, :Fs4, :B4, :Cs5, :D5, :Fs4,
+         :E4, :Cs5, :B4, :Fs4, :D5, :Cs5)
+live_loop :slow do
+  play notes.tick, release: 0.1
+  sleep time_sync
+end
+
+live_loop :synth do
+  use_synth :blade
+  play 35, release: 2.9
+  sleep time_sync * 6
+  play 50, release: 2.9
+  sleep time_sync * 6
+end

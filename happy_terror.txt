@@ -1,0 +1,16 @@
+time_sync = 0.5
+
+notes = (ring :C6, :D6, :E6)
+live_loop :riff do
+  play notes.tick, release: 0.1
+  sleep time_sync
+end
+
+live_loop :synth do
+  synth_length = time_sync * 6
+  use_synth :prophet
+  play 60, release: synth_length
+  sleep time_sync * synth_length
+  play 40, release: synth_length
+  sleep time_sync * synth_length
+end
