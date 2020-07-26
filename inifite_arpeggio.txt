@@ -1,0 +1,20 @@
+sleep_time = 0.2
+
+define :arp do |start|
+  4.times do
+    play start
+    sleep sleep_time
+    play start + 3
+    sleep sleep_time
+    play start + 7
+    sleep sleep_time
+  end
+end
+
+live_loop :foo do
+  start = 72
+  arp start
+  arp start - 2
+  arp start - 4
+  arp start - 6
+end
