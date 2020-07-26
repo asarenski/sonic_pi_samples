@@ -1,0 +1,12 @@
+define :my_choir do |rate|
+  3.times do
+    sample :ambi_choir, rate: rate
+    sleep 1
+  end
+end
+
+rate = 0.34
+39.times do
+  my_choir rate
+  rate += 0.02
+end
