@@ -1,0 +1,63 @@
+define :first do |higher, lower|
+  play higher
+  sleep 0.5
+  play lower
+  sleep 0.5
+  play higher
+  sleep 0.25
+  play higher
+  sleep 0.25
+  play lower
+  sleep 0.5
+end
+
+define :second do |higher, lower|
+  2.times do
+    play higher
+    sleep 0.25
+  end
+  
+  2.times do
+    play lower
+    sleep 0.25
+  end
+  
+  2.times do
+    play higher
+    sleep 0.25
+  end
+  
+  play lower
+  sleep 0.5
+end
+
+define :fin do
+  3.times do
+    play :F6
+    sleep 0.0625
+    play :E6
+    sleep 0.25
+    play :D6
+    sleep 0.25
+    play :E6
+    sleep 0.25
+    play :F6
+    sleep 0.25
+  end
+  
+  play :G6
+  sleep 1
+end
+
+live_loop :background do
+  sample :ambi_choir, rate: 0.4
+  sleep 1
+end
+
+live_loop :notes do
+  first :A6, :G6
+  first :G6, :F6
+  second :A6, :G6
+  second :G6, :F6
+  fin
+end

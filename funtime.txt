@@ -1,0 +1,10 @@
+live_loop :background do
+  sample :ambi_choir, rate: 0.4
+  sleep 1
+end
+
+notes = [:A6, :G6]
+live_loop :notes do
+  notes.tick
+  sleep 1
+end
