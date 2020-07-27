@@ -1,0 +1,26 @@
+6.times do
+  play(chord :G, :maj), release: 1.6
+  sleep 2
+  play(chord :D, :maj), release: 1.6
+  sleep 2
+  play(chord :C, :maj), release: 1.6
+  sleep 2
+end
+
+use_synth :pluck
+# You're my
+play(chord :G, :maj), sustain: 0.8
+sleep 1
+# my
+play(chord :D, :maj), sustain: 0.8
+sleep 1
+# my
+play(chord :E, :min), sustain: 0.8
+sleep 1
+# my
+play(chord :D, :maj), sustain: 0.8
+sleep 1
+# space
+play(chord :C, :maj), sustain: 0.8
+sleep 2
+#lover
